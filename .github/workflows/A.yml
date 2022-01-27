@@ -23,7 +23,7 @@ jobs:
            - name: nd-a
              uses: actions/checkout@v2
              with:
-               repository: nd-test/nd-a
+               repository: dsjena/av-a
                token: ${{ secrets.SUPER_SECRET }}
                path: nd-a
            - name: Setup
