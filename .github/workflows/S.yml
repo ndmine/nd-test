@@ -1,18 +1,18 @@
-name: A
+name: S
 
 on:
    repository_dispatch:
-       types: A
+       types: S
 
 jobs:
    sj:
        runs-on: ubuntu-latest
        steps:
-           - name: Checkout A
+           - name: Checkout S
              uses: actions/checkout@v2
              with:
                path: main
-           - name: Setting A
+           - name: Setting S
              run: |
                cd ./main/
                ls ${GITHUB_WORKSPACE}
@@ -20,24 +20,24 @@ jobs:
                pwd
                echo "main is done..."
 
-           - name: nd-a
+           - name: nd-s
              uses: actions/checkout@v2
              with:
-               repository: dsjena/nd-a
+               repository: dsjena/nd-s
                token: ${{ secrets.SUPER_SECRET }}
-               path: nd-a
+               path: nd-s
            - name: Setup
              uses: actions/setup-python@v2
              with:
                python-version: '3.8'
            - name: Install
              run: |
-               cd ./nd-a/
+               cd ./nd-s/
                python -m pip install --upgrade pip
                pip install -r requirements.txt
-           - name: Compute A
+           - name: Compute S
              run: |
-               cd ./nd-a/
+               cd ./nd-s/
                dtt=`TZ=IST-5:30 date`
                echo ${GITHUB_WORKSPACE}
                echo "${dtt}" 
